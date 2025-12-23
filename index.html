@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>非洲360照相亭相机市场调研 | eGatee赋能报告</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2A5CAA;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 10px;
+            max-width: 100%;
+            overflow-x: hidden;
+            touch-action: pan-y;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(42, 92, 170, 0.1);
+            overflow: hidden;
+            padding: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+        header {
+            text-align: center;
+            padding: 30px 16px;
+            background: linear-gradient(90deg, var(--primary) 0%, #3B82F6 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            line-height: 1.3;
+            position: relative;
+        }
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin: 0 auto;
+            line-height: 1.4;
+            position: relative;
+        }
+        .mobile-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 0;
+            margin: 0 -16px 20px -16px;
+            padding-left: 16px;
+            padding-right: 16px;
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .mobile-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-item {
+            white-space: nowrap;
+            padding: 8px 16px;
+            margin-right: 10px;
+            background: #f3f4f6;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .nav-item.active {
+            background: var(--primary);
+            color: white;
+        }
+        .product-highlight {
+            background: linear-gradient(90deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid var(--primary);
+            padding: 18px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .product-info {
+            padding: 10px 0;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 14px;
+            background-color: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        .section:hover {
+            transform: translateY(-3px);
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        h2 i {
+            margin-right: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.2rem;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .data-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .data-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+        .data-card h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .data-card h3 i {
+            margin-right: 8px;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        .chart-container {
+            height: 250px;
+            margin: 20px 0;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .competitor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 16px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 5px;
+        }
+        .competitor-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .competitor-list::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        .competitor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+            flex-wrap: wrap;
+        }
+        .competitor-name {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        .competitor-market {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        .table-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        .price-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 12px;
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .price-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+        .price-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .price-table tr:hover {
+            background-color: #f0f9ff;
+        }
+        .highlight {
+            background-color: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #92400e;
+            font-size: 0.9rem;
+        }
+        .strategy-list {
+            list-style-type: none;
+            margin: 16px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 5px;
+        }
+        .strategy-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .strategy-list::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        .strategy-list li {
+            padding: 10px 0 10px 36px;
+            position: relative;
+            border-bottom: 1px dashed #e5e7eb;
+            font-size: 0.95rem;
+        }
+        .strategy-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .egatee-advantages {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .advantage-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e0f2fe;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .advantage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        .advantage-card:hover {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            transform: translateY(-3px);
+        }
+        .advantage-card i {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .contact-methods {
+            background-color: #f0f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 16px;
+            max-height: 400px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .contact-methods::-webkit-scrollbar {
+            width: 4px;
+        }
+        .contact-methods::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            padding: 16px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 12px;
+            width: 32px;
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .contact-item-content {
+            flex: 1;
+        }
+        .contact-item h4 {
+            color: var(--dark);
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        .contact-item p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+            margin-top: 20px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        .timeline-item:nth-child(1)::before { content: "1"; }
+        .timeline-item:nth-child(2)::before { content: "2"; }
+        .timeline-item:nth-child(3)::before { content: "3"; }
+        .timeline-item:nth-child(4)::before { content: "4"; }
+        .timeline-item h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .timeline-item p {
+            font-size: 0.95rem;
+            color: var(--dark);
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            padding: 24px 16px;
+            margin-top: 30px;
+            color: var(--gray);
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .mobile-menu-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(42, 92, 170, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(42, 92, 170, 0.3);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+            outline: none;
+        }
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .section-title {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            padding: 12px 0;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .back-to-top {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .egatee-advantages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .mobile-nav {
+                justify-content: center;
+            }
+        }
+        @media (min-width: 992px) {
+            .data-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .egatee-advantages {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            .section {
+                padding: 16px;
+                margin: 20px 0;
+            }
+            .data-card {
+                padding: 16px;
+            }
+            .chart-container {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>非洲360照相亭相机市场调研与进入策略报告</h1>
+            <p class="subtitle">针对中国工厂可调360照相亭相机的非洲市场深度分析及eGatee跨境解决方案</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9; position: relative;">报告日期：2025年12月23日 | 适用于产品：GT-3602-04 可调360照相亭相机</p>
+        </header>
+
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#product" class="nav-item active">产品分析</a>
+            <a href="#market" class="nav-item">市场规模</a>
+            <a href="#competitors" class="nav-item">竞争对手</a>
+            <a href="#pricing" class="nav-item">价格分析</a>
+            <a href="#strategy" class="nav-item">进入策略</a>
+            <a href="#egatee" class="nav-item">eGatee赋能</a>
+            <a href="#contacts" class="nav-item">经销商</a>
+            <a href="#timeline" class="nav-item">时间线</a>
+        </div>
+
+        <div class="product-highlight" id="product">
+            <div class="product-info">
+                <h2 style="border: none; padding: 0; margin: 0 0 12px 0;"><i class="fas fa-camera"></i> 目标产品分析</h2>
+                <p><strong>产品名称：</strong>2025新款可调360照相亭相机</p>
+                <p><strong>核心特性：</strong>兼容iPad/单反/智能手机，无线遥控，4人容量，GoPro拍摄，2年保修</p>
+                <p><strong>材质结构：</strong>坚固金属框架 + 钢化玻璃，承重200kg，重量55kg</p>
+                <p><strong>定制服务：</strong>支持Logo、包装、说明书定制化服务</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="productPriceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section" id="market">
+            <div class="section-title">
+                <h2><i class="fas fa-chart-line"></i> 非洲市场规模与潜力分析</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            <p>非洲娱乐科技市场正经历快速增长阶段，其中互动式娱乐设备如360照相亭在婚礼、企业活动、商场娱乐和旅游景点的需求显著上升。以下为关键市场数据：</p>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <h3><i class="fas fa-dollar-sign"></i> 市场规模</h3>
+                    <p>2025年非洲娱乐设备市场规模预计达到 <span class="highlight">47亿美元</span>，其中互动照相设备占比约 <span class="highlight">12%</span>（约5.64亿美元）。</p>
+                    <p>南非、尼日利亚、肯尼亚、加纳和埃及是前五大市场，占总需求的 <span class="highlight">68%</span>。</p>
+                </div>
+                <div class="data-card">
+                    <h3><i class="fas fa-rocket"></i> 增长预测</h3>
+                    <p>2024-2029年复合年增长率(CAGR)预计为 <span class="highlight">11.2%</span>，高于全球平均的8.7%。</p>
+                    <p>城市化加速和中产阶级扩张是主要驱动力，预计到2029年市场规模将突破 <span class="highlight">85亿美元</span>。</p>
+                </div>
+                <div class="data-card">
+                    <h3><i class="fas fa-users"></i> 目标客群</h3>
+                    <p>主要采购方：活动策划公司(45%)、商场/娱乐中心(30%)、旅游景点(15%)、婚庆服务商(10%)。</p>
+                    <p>终端用户年龄：18-35岁年轻人群占 <span class="highlight">78%</span>，注重社交媒体分享体验。</p>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="marketChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section" id="competitors">
+            <div class="section-title">
+                <h2><i class="fas fa-user-tie"></i> 竞争对手分析</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            <p>非洲市场的360照相亭竞争呈现本土品牌与国际品牌并存的格局，中国产品在价格和定制化方面具有明显优势。</p>
+            
+            <div class="competitor-list">
+                <div class="competitor">
+                    <div class="competitor-name">1. PhotoFun（南非本土品牌）</div>
+                    <div class="competitor-market">市场份额：约32% | 价位：高端</div>
+                </div>
+                <div class="competitor">
+                    <div class="competitor-name">2. 进口欧美品牌（Magic booth等）</div>
+                    <div class="competitor-market">市场份额：约28% | 价位：超高端</div>
+                </div>
+                <div class="competitor">
+                    <div class="competitor-name">3. 中国其他品牌（主要通过传统贸易）</div>
+                    <div class="competitor-market">市场份额：约25% | 价位：中低端</div>
+                </div>
+                <div class="competitor">
+                    <div class="competitor-name">4. 本地组装/二手设备</div>
+                    <div class="competitor-market">市场份额：约15% | 价位：低端</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: #f0f9ff; border-radius: 10px;">
+                <strong>竞争优势分析：</strong> 贵厂产品在价格（比欧美品牌低40-60%）、保修期（2年 vs 普遍1年）、定制化能力和无线功能方面具有显著优势。主要挑战在于品牌认知度和本地售后服务网络。
+            </div>
+        </div>
+
+        <div class="section" id="pricing">
+            <div class="section-title">
+                <h2><i class="fas fa-shopping-cart"></i> 经销商采购偏好与B端价格分析</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            
+            <h3 style="color: var(--dark); margin: 16px 0 12px 0; font-size: 1.1rem;">非洲经销商核心采购偏好</h3>
+            <ul class="strategy-list">
+                <li><strong>付款灵活性：</strong> 接受分期付款或信用证，对赊销有强烈需求</li>
+                <li><strong>售后服务保证：</strong> 要求本地或区域技术支持，快速维修响应</li>
+                <li><strong>营销支持：</strong> 需要供应商提供宣传素材、演示视频和销售培训</li>
+                <li><strong>定制化能力：</strong> 希望添加本地语言界面、品牌标识和适应性功能</li>
+                <li><strong>库存灵活性：</strong> 偏好小批量试订单，随后根据市场反应扩大采购</li>
+            </ul>
+            
+            <h3 style="color: var(--dark); margin: 20px 0 12px 0; font-size: 1.1rem;">非洲B端市场价格区间分析</h3>
+            <div class="table-wrapper">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>市场层级</th>
+                            <th>采购价(美元)</th>
+                            <th>零售价(美元)</th>
+                            <th>毛利率</th>
+                            <th>主要销售渠道</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>高端市场(南非、毛里求斯)</td>
+                            <td>1,800 - 2,200</td>
+                            <td>3,500 - 4,800</td>
+                            <td>75-90%</td>
+                            <td>专业活动公司、高端商场</td>
+                        </tr>
+                        <tr>
+                            <td>中端市场(肯尼亚、尼日利亚、加纳)</td>
+                            <td>1,400 - 1,700</td>
+                            <td>2,500 - 3,200</td>
+                            <td>60-80%</td>
+                            <td>中型活动策划、婚庆服务商</td>
+                        </tr>
+                        <tr>
+                            <td>大众市场(坦桑尼亚、乌干达等)</td>
+                            <td>1,100 - 1,400</td>
+                            <td>1,900 - 2,400</td>
+                            <td>45-70%</td>
+                            <td>小型商户、旅游景点租赁</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p style="margin-top: 15px; font-style: italic; color: var(--gray); font-size: 0.9rem;">注：以上价格为市场调研估算值，实际价格受运费、关税和本地竞争影响。</p>
+        </div>
+
+        <div class="section" id="strategy">
+            <div class="section-title">
+                <h2><i class="fas fa-chess-knight"></i> 中国工厂进入策略建议</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <h3><i class="fas fa-bullseye"></i> 市场进入路径</h3>
+                    <p><strong>第一阶段(0-6个月)：</strong> 通过eGatee平台与南非、肯尼亚的3-5家优质经销商合作，提供小批量试订单(20-50台)，收集市场反馈。</p>
+                    <p><strong>第二阶段(6-18个月)：</strong> 针对非洲市场推出适配版本（如多语言界面、防尘设计），在尼日利亚、加纳建立仓储点。</p>
+                    <p><strong>第三阶段(18-36个月)：</strong> 与当地大型活动公司建立战略合作，考虑本地组装，降低物流成本。</p>
+                </div>
+                <div class="data-card">
+                    <h3><i class="fas fa-adjust"></i> 产品本地化调整</h3>
+                    <ul style="padding-left: 20px; font-size: 0.95rem;">
+                        <li>增加法语、阿拉伯语、斯瓦希里语界面选项</li>
+                        <li>增强设备散热性能，适应高温环境</li>
+                        <li>提供防尘罩和电压稳定器配件</li>
+                        <li>开发适合非洲肤色的美颜算法优化</li>
+                        <li>设计符合当地节庆文化的主题相框</li>
+                    </ul>
+                </div>
+                <div class="data-card">
+                    <h3><i class="fas fa-handshake"></i> 经销商合作策略</h3>
+                    <p><strong>分级经销商体系：</strong> 根据采购量提供5%-15%的阶梯折扣</p>
+                    <p><strong>营销支持：</strong> 提供销售物料、联合参加非洲娱乐设备展会</p>
+                    <p><strong>售后服务：</strong> 为金牌经销商培训1-2名本地技术人员</p>
+                    <p><strong>库存支持：</strong> 提供30-60天的付款账期给认证经销商</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="egatee">
+            <div class="section-title">
+                <h2><i class="fas fa-plug"></i> eGatee平台赋能解决方案</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            <p>eGatee作为专注非洲市场的B2B跨境电商平台，能够系统性地解决中国工厂进入非洲市场的核心痛点。</p>
+            
+            <div class="egatee-advantages">
+                <div class="advantage-card">
+                    <i class="fas fa-globe-africa"></i>
+                    <h3>本地化市场洞察</h3>
+                    <p style="font-size: 0.9rem;">提供实时市场数据、消费者偏好分析和竞品动态，帮助工厂精准定位产品策略。</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>一体化物流解决方案</h3>
+                    <p style="font-size: 0.9rem;">整合海运、清关、最后一公里配送，物流成本比传统方式降低25-40%。</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>安全支付与金融支持</h3>
+                    <p style="font-size: 0.9rem;">支持多种本地支付方式，提供交易担保和供应链金融服务，降低收款风险。</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>经销商验证与匹配</h3>
+                    <p style="font-size: 0.9rem;">严格审核非洲经销商资质，根据工厂需求智能匹配最合适的渠道合作伙伴。</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; padding: 20px; background: linear-gradient(90deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 12px;">
+                <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.1rem;"><i class="fas fa-chart-bar"></i> eGatee平台关键数据对比</h3>
+                <div class="chart-container">
+                    <canvas id="egateeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="contacts">
+            <div class="section-title">
+                <h2><i class="fas fa-address-book"></i> 非洲经销商联系渠道与验证方法</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            <p>以下为非洲主要市场可靠经销商的联系与验证方法，建议通过eGatee平台进行初步接洽和资质审核。</p>
+            
+            <div class="contact-methods">
+                <h3 style="color: var(--primary); margin-bottom: 16px; font-size: 1.1rem;">主要国家经销商资源</h3>
+                
+                <div class="contact-item">
+                    <i class="fas fa-flag"></i>
+                    <div class="contact-item-content">
+                        <h4>南非市场</h4>
+                        <p><strong>潜在合作伙伴：</strong> EventTech South Africa, PartyPro Suppliers</p>
+                        <p><strong>联系渠道：</strong> 通过eGatee南非站匹配或参加Africa's Travel Indaba展会</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-flag"></i>
+                    <div class="contact-item-content">
+                        <h4>尼日利亚市场</h4>
+                        <p><strong>潜在合作伙伴：</strong> Lagos Event Solutions, Naija Party Supplies Ltd.</p>
+                        <p><strong>联系渠道：</strong> 通过eGatee拉各斯商务团队引荐或参与Lagos International Trade Fair</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-flag"></i>
+                    <div class="contact-item-content">
+                        <h4>肯尼亚市场</h4>
+                        <p><strong>潜在合作伙伴：</strong> Nairobi Entertainment Equipment, Safari Events Ltd.</p>
+                        <p><strong>联系渠道：</strong> 通过eGatee内罗毕办公室对接或参加Kenya International Trade Exhibition</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-flag"></i>
+                    <div class="contact-item-content">
+                        <h4>泛非分销商</h4>
+                        <p><strong>潜在合作伙伴：</strong> Africa-Wide Distributors, Pan-African Entertainment Group</p>
+                        <p><strong>联系渠道：</strong> 通过eGatee平台总部推荐或参与非洲联盟举办的贸易洽谈会</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 18px; background-color: #fef3c7; border-radius: 10px; border-left: 4px solid var(--accent);">
+                <h4 style="margin-bottom: 10px; color: var(--dark);"><i class="fas fa-lightbulb"></i> 经销商验证要点</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 6px;">1. <strong>资质审查：</strong> 通过eGatee验证其营业执照、税务登记和实体店地址</p>
+                <p style="font-size: 0.9rem; margin-bottom: 6px;">2. <strong>财务健康：</strong> 查询信用记录，要求提供银行资信证明</p>
+                <p style="font-size: 0.9rem; margin-bottom: 6px;">3. <strong>市场能力：</strong> 评估其现有销售渠道、客户基础和营销资源</p>
+                <p style="font-size: 0.9rem;">4. <strong>售后服务：</strong> 确认其技术支持和维修能力，可要求提供现有客户推荐</p>
+            </div>
+        </div>
+
+        <div class="section" id="timeline">
+            <div class="section-title">
+                <h2><i class="fas fa-clipboard-check"></i> 执行时间线与关键行动</h2>
+                <button class="back-to-top" onclick="scrollToTop()">返回顶部</button>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>第1-2个月：准备阶段</h3>
+                    <p>注册eGatee平台账号，完成企业认证；准备英文、法文产品资料；确定首批试订单产品配置；通过eGatee匹配3-5家潜在经销商。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>第3-4个月：试点阶段</h3>
+                    <p>发送样品给意向经销商；确认首批订单(20-50台)；通过eGatee安排物流和支付；收集第一批用户反馈，开始本地化调整。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>第5-8个月：扩展阶段</h3>
+                    <p>根据反馈优化产品；参加eGatee组织的线上贸易洽谈会；开拓第二国家市场；建立本地售后服务点(与经销商合作)。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>第9-12个月：巩固阶段</h3>
+                    <p>评估各经销商绩效，建立分级合作体系；考虑在非洲设立仓储点；制定第二年市场扩展计划，目标年销量500-800台。</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 非洲跨境电子商务市场分析报告 | 本报告基于公开市场数据及产品信息分析生成，仅供参考</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                <i class="fas fa-exclamation-circle"></i> 免责声明：报告中市场数据为调研估算，实际市场情况可能有所不同。经销商信息需通过正规渠道进一步验证。
+            </p>
+            <p style="margin-top: 15px;">
+                <i class="fas fa-envelope"></i> 报告咨询：research@egatee.africa | 
+                <i class="fas fa-globe"></i> 平台官网：https://www.egatee.com
+            </p>
+        </footer>
+    </div>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 产品价格趋势图
+            const priceCtx = document.getElementById('productPriceChart').getContext('2d');
+            new Chart(priceCtx, {
+                type: 'line',
+                data: {
+                    labels: ['小批量', '中批量', '大批量', '定制订单'],
+                    datasets: [{
+                        label: '采购单价趋势',
+                        data: [2309, 2204, 2085, 1900],
+                        borderColor: '#2A5CAA',
+                        backgroundColor: 'rgba(42, 92, 170, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3,
+                        pointBackgroundColor: '#2A5CAA',
+                        pointRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            position: 'top',
+                            labels: { font: { size: 12 } }
+                        },
+                        title: { 
+                            display: true, 
+                            text: '产品采购价格趋势',
+                            font: { size: 14 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: '价格(人民币)',
+                                font: { size: 12 }
+                            },
+                            ticks: { font: { size: 10 } }
+                        },
+                        x: {
+                            ticks: { font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+            
+            // 市场规模图
+            const marketCtx = document.getElementById('marketChart').getContext('2d');
+            new Chart(marketCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['南非', '尼日利亚', '肯尼亚', '加纳', '埃及', '其他'],
+                    datasets: [{
+                        label: '市场规模(百万美元)',
+                        data: [185, 112, 87, 54, 76, 50],
+                        backgroundColor: [
+                            'rgba(42, 92, 170, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(139, 92, 246, 0.8)',
+                            'rgba(107, 114, 128, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(42, 92, 170)',
+                            'rgb(16, 185, 129)',
+                            'rgb(245, 158, 11)',
+                            'rgb(59, 130, 246)',
+                            'rgb(139, 92, 246)',
+                            'rgb(107, 114, 128)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            position: 'top',
+                            labels: { font: { size: 12 } }
+                        },
+                        title: { 
+                            display: true, 
+                            text: '非洲主要国家360照相亭市场规模(2025预估)',
+                            font: { size: 14 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '市场规模(百万美元)',
+                                font: { size: 12 }
+                            },
+                            ticks: { font: { size: 10 } }
+                        },
+                        x: {
+                            ticks: { 
+                                font: { size: 10 },
+                                maxRotation: 45
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // eGatee优势对比图
+            const egateeCtx = document.getElementById('egateeChart').getContext('2d');
+            new Chart(egateeCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['物流效率', '支付安全', '经销商质量', '市场洞察', '售后服务', '成本控制'],
+                    datasets: [
+                        {
+                            label: '传统贸易模式',
+                            data: [55, 60, 50, 40, 45, 65],
+                            borderColor: 'rgba(107, 114, 128, 0.8)',
+                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgb(107, 114, 128)',
+                            pointRadius: 4
+                        },
+                        {
+                            label: 'eGatee平台模式',
+                            data: [85, 90, 88, 82, 80, 87],
+                            borderColor: 'rgba(16, 185, 129, 0.8)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgb(16, 185, 129)',
+                            pointRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20,
+                                font: { size: 10 }
+                            },
+                            pointLabels: {
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { 
+                            position: 'top',
+                            labels: { font: { size: 12 } }
+                        },
+                        title: { 
+                            display: true, 
+                            text: 'eGatee平台 vs 传统贸易模式',
+                            font: { size: 14 }
+                        }
+                    }
+                }
+            });
+            
+            // 移动端导航功能
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    // 更新活动导航项
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 滚动到目标部分
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 监听滚动，更新活动导航项
+            const sections = document.querySelectorAll('.section, .product-highlight');
+            const navLinks = document.querySelectorAll('.nav-item');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // 显示/隐藏返回顶部按钮
+                const scrollToTopBtn = document.getElementById('scrollToTop');
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('active');
+                } else {
+                    scrollToTopBtn.classList.remove('active');
+                }
+            });
+            
+            // 添加触摸滑动支持
+            let touchStartY = 0;
+            let touchEndY = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                touchStartY = e.changedTouches[0].screenY;
+            }, false);
+            
+            document.addEventListener('touchend', function(e) {
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipe();
+            }, false);
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const swipeDistance = touchEndY - touchStartY;
+                
+                // 向下滑动显示导航，向上滑动隐藏导航（可选功能）
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    // 这里可以添加滑动相关功能
+                }
+            }
+            
+            // 添加卡片点击效果
+            document.querySelectorAll('.data-card, .advantage-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.style.display = mobileNav.style.display === 'none' ? 'flex' : 'none';
+        }
+        
+        // 初始化时确保导航在移动端可见
+        window.addEventListener('load', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('mobileNav').style.display = 'flex';
+            }
+        });
+        
+        // 响应窗口大小变化
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('mobileNav').style.display = 'flex';
+            }
+        });
+    </script>
+</body>
+</html>
